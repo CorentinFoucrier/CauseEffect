@@ -1,0 +1,40 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.container section {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 2em;
+}
+
+.container section address {
+  font-style: normal;
+  line-height: 2em;
+}
+
+nav {
+  width: 25vw;
+  border-right: 1px solid black;
+}
+
+nav div {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+  padding: 1em;
+}
+
+.d-none {
+  display: none;
+}
