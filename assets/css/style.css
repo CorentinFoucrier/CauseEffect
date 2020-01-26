@@ -15,12 +15,13 @@ body {
   display: flex;
   justify-content: center;
   width: 100vw;
-  padding: 2em;
+  padding-top: 2em;
 }
 
 .container section address {
   font-style: normal;
   line-height: 2em;
+  width: 50%;
 }
 
 nav {
@@ -33,6 +34,15 @@ nav div {
   cursor: pointer;
   text-align: center;
   padding: 1em;
+}
+
+span.detailsNames {
+  display: inline-block;
+  font-weight: bold;
+}
+
+span.detailsNames:first-letter {
+  text-transform: uppercase;
 }
 
 .d-none {
