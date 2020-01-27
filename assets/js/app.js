@@ -1,4 +1,4 @@
-const peoples = [
+const persons = [
     {
         name: "Dwayne Stormer", street: "3910 Meadowbrook Mall Road", city: "Los Angeles", state: "California", country: "US", telephone: "310-807-2861", birthday: "6/4/1956"
     },
@@ -19,19 +19,29 @@ const info = document.getElementById("info");
 const address = document.getElementById("address");
 
 
-for (let i = 0; i < peoples.length; i++) {
-    const people = peoples[i];
-    nameList.insertAdjacentHTML("beforeend", `<div onclick="showDetails(${i})">${people.name}</div>`);
+for (let i = 0; i < persons.length; i++) {
+    const person = persons[i];
+    nameList.insertAdjacentHTML("beforeend",
+        `<div onclick="showDetails(${i})">
+            ${person.name}
+            <span>
+                Street: ${person.street}<br />
+                City: ${person.city}<br />
+                <hr />
+                Click for more infos!
+            </span>
+        </div>`
+    );
 }
 
 /**
  * Get details when a name is clicked
- * @param {number} id Id of people details in the data array
+ * @param {number} id Id of person details in the data array
  */
 const showDetails = id => {
     info.classList.add("d-none");
     details.innerHTML = "";
-    for (const [key, value] of Object.entries(peoples[id])) {
+    for (const [key, value] of Object.entries(persons[id])) {
         details.insertAdjacentHTML("beforeend", `<span class="detailsNames">${key}:</span> ${value}<br />`)
     }
 }
