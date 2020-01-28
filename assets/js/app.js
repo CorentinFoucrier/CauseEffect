@@ -16,23 +16,7 @@ const persons = [
 const nameList = document.getElementById("nameList");
 const details = document.getElementById("details");
 const info = document.getElementById("info");
-const address = document.getElementById("address");
-
-
-for (let i = 0; i < persons.length; i++) {
-    const person = persons[i];
-    nameList.insertAdjacentHTML("beforeend",
-        `<div onclick="showDetails(${i})">
-            ${person.name}
-            <span>
-                Street: ${person.street}<br />
-                City: ${person.city}<br />
-                <hr />
-                Click for more infos!
-            </span>
-        </div>`
-    );
-}
+const names = document.getElementById("nameList").getElementsByTagName('div');
 
 /**
  * Get details when a name is clicked
@@ -44,4 +28,35 @@ const showDetails = id => {
     for (const [key, value] of Object.entries(persons[id])) {
         details.insertAdjacentHTML("beforeend", `<span class="detailsNames">${key}:</span> ${value}<br />`)
     }
+}
+
+for (let i = 0; i < persons.length; i++) {
+    const person = persons[i];
+    nameList.insertAdjacentHTML("beforeend",
+        `<div id="name_${i}">
+            ${person.name}
+            <span>
+                Street: ${person.street}<br />
+                City: ${person.city}<br />
+                <hr />
+                Click for more infos!
+            </span>
+        </div>`
+    );
+}
+
+for (let i = 0; i < names.length; i++) {
+    const name = names[i];
+    name.addEventListener("click", e => {
+        let current = document.getElementsByClassName("clicked")[0];
+        const id = e.target.id.split('_')[1];
+        showDetails(id);
+        /* Condition to prevent the first state of current */
+        if (typeof current !== "undefined") {
+            current.className = current.className.replace("clicked", ""); //remove clicked class
+            e.target.classList.add("clicked");
+        } else {
+            e.target.classList.add("clicked");
+        }
+    });
 }

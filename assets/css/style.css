@@ -43,6 +43,13 @@ nav div:hover {
   color: #fff;
 }
 
+nav div.clicked {
+  background-color: #6d6d6d;
+  color: #fff;
+  box-shadow: inset 0px 0px 19px 3px rgba(0, 0, 0, 0.75);
+  font-weight: bold;
+}
+
 nav div span {
   display: none;
 }
@@ -64,6 +71,7 @@ nav div:hover span {
   border-radius: 4px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
     0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  font-weight: normal;
 }
 
 nav div:hover hr {
